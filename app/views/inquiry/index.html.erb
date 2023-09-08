@@ -1,0 +1,6 @@
+<%= form_with  do |f| %>
+  <%= f.text_field :name, name: 'inquiry[name]' %>
+　<%= f.text_field :email, name: 'inquiry[email]' %>
+
+  <%= f.submit 'Submit' %>
+<% end %>
