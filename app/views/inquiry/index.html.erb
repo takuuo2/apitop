@@ -1,6 +1,29 @@
-<%= form_with  do |f| %>
-  <%= f.text_field :name, name: 'inquiry[name]' %>
-　<%= f.text_field :email, name: 'inquiry[email]' %>
+<div class = "container">
+  <div class = "row">
+    <div class='col-md-3'>
+      <p>3333</p>
+    </div>
+    <div class='col-md-9'>
+      <%= form_with  do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, name: 'inquiry[name]' %>
+        </div>
 
-  <%= f.submit 'Submit' %>
-<% end %>
+        <div>
+          <%= f.text_field :email, name: 'inquiry[email]' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit 'Submit' %>
+        </div>
+      <% end %>
+      <div class="scroll">
+        <% for i in 1..100 do %>
+        <span>
+        サンプルテキストサンプルテキスト…
+        </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
