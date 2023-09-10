@@ -1,3 +1,12 @@
+<% if flash[:success] %>
+  <div class="flash-message success">
+    <%= flash[:success] %>
+  </div>
+<% elsif flash[:error] %>
+  <div class="flash-message error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 <div class = "container">
   <div class = "row">
     <div class='col-md-3'>
@@ -6,11 +15,11 @@
     <div class='col-md-9'>
       <%= form_with  do |f| %>
         <div class="form-group">
-          <%= f.text_field :name, name: 'inquiry[name]' %>
+          <%= f.text_field :title, name: 'inquiry[title]' %>
         </div>
 
         <div>
-          <%= f.text_field :email, name: 'inquiry[email]' %>
+          <%= f.text_field :content, name: 'inquiry[content]' %>
         </div>
 
         <div class="form-group">
@@ -18,11 +27,30 @@
         </div>
       <% end %>
       <div class="scroll">
-        <% for i in 1..100 do %>
-        <span>
-        サンプルテキストサンプルテキスト…
-        </span>
-        <% end %>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>タイトル</th>
+              <th>作成日時</th>
+              <th>サービス名</th>
+              <th>更新日時</th>
+              <th>状態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @inquiries.each do |inquiry| %>
+              <tr>
+                <%= link_to inquiry_path(inquiry) do %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
